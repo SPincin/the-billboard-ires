@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Form"] = "Form";
+}
+@model IEnumerable<Message>;
+
+<h1>@ViewData["Form"]</h1>
+
+<p>qua ci starà il form</p>
+
+
+<div class="mb-3">
+    <label for="commento" class="form-label">Commento:</label>
+    <textarea class="form-control" id="commento" rows="4"></textarea>
+</div>
+
+<div class="container-fluid">
+    <ul>
+        <li> <a href="https://docs.microsoft.com/aspnet/core">Msg 1</a> </li>
+        <li><a asp-area="" asp-controller="Home" asp-action="MessageAuthor">Msg 2</a></li>
+
+    </ul>
+</div>
+
+<div>
+@foreach(var message in Model)
+{
+    <p>@message.Title</p>
+}
+</div>

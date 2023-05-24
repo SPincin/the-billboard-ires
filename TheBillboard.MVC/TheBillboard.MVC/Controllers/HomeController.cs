@@ -1,12 +1,14 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TheBillboard.MVC.Models;
+using TheBillboard.MVC.Gateway;
 
 namespace TheBillboard.MVC.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly Gateways _gateway;
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -18,7 +20,17 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Privacy()
+    public IActionResult About()
+    {
+        return View();
+    }
+
+    public IActionResult Form()
+    {
+        return View(_gateway.GetData());
+    }
+
+    public IActionResult MessageAuthor()
     {
         return View();
     }
